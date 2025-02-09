@@ -30,3 +30,20 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+processResources.dependsOn('copySecret')
+
+tasks.register('copySecret', Copy) {
+	from './be-submodule' // 서브 모듈 디렉토리 경로
+	include "*.properties"  // 설정 파일 복사
+	into 'src/main/resources'  // 붙여넣을 위치
+}
+
+//processResources.dependsOn('copySecret')
+//
+//task copySecret(type: Copy) {
+//	from ('../backend-submodule') {
+//		include ("*.properties")
+//	}
+//	into ('./src/main/resources')
+//}
