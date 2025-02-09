@@ -21,7 +21,6 @@ public class Student{
     @Column(length = 64, nullable = false)
     private String name;
 
-    @Builder
     public Student(String name) {
         this.name = name;
     }

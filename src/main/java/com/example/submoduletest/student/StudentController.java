@@ -13,10 +13,8 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<String> onboard(@RequestParam("name") String name) {
-        Student student = Student.builder()
-                .name(name)
-                .build();
+        Student student = new Student(name);
         Student savedStudent = studentRepository.save(student);
-        return ResponseEntity.ok(savedStudent.getName());
+        return ResponseEntity.ok(name);
     }
 }
