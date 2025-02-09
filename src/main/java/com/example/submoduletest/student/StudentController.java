@@ -15,6 +15,6 @@ public class StudentController {
     public ResponseEntity<String> onboard(@RequestParam("name") String name) {
         Student student = new Student(name);
         Student savedStudent = studentRepository.save(student);
-        return ResponseEntity.ok(name + " ok");
+        return ResponseEntity.ok(name + " okok");
     }
 }
